@@ -15,7 +15,10 @@ const glados = async () => {
     const status = await fetch('https://glados.rocks/api/user/status', {
       method: 'GET',
       headers,
-    }).then((r) => r.json())
+    }).then((r) => {
+      console.log(r)
+      return r.json()
+    })
     return [
       'Checkin OK',
       `${checkin.message}`,
