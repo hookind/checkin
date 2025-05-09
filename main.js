@@ -11,14 +11,14 @@ const glados = async () => {
       method: 'POST',
       headers: { ...headers, 'content-type': 'application/json' },
       body: '{"token":"glados.one"}',
-    }).then((r) => r.json)
+    }).then((r) => r.json())
       .then((data) => {
       console.log(data)
     })
     const status = await fetch('https://glados.rocks/api/user/status', {
       method: 'GET',
       headers,
-    }).then((r) => r.json)
+    }).then((r) => r.json())
     return [
       'Checkin OK',
       `${checkin.message}`,
