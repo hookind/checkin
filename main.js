@@ -13,7 +13,9 @@ const glados = async () => {
       body: '{"token":"glados.one"}',
     }).then((r) => r.json())
       .then((data) => {
-      console.log(data)
+      if (list.data && list.data.length > 0) {
+        console.log(data.list[0])
+      }
     })
     const status = await fetch('https://glados.rocks/api/user/status', {
       method: 'GET',
