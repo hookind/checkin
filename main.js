@@ -14,11 +14,21 @@ const glados = async () => {
         headers: { ...common, 'content-type': 'application/json' },
         body: '{"token":"glados.cloud"}',
       }).then((r) => r.json())
+      .then((data) => {
+      if (data.list && data.list.length > 0) {
+        console.log(data.list[0])
+      }
+    })
       if (action?.code) throw new Error(action?.message)
       const status = await fetch('https://glados.cloud/api/user/status', {
         method: 'GET',
         headers: { ...common },
       }).then((r) => r.json())
+      .then((data) => {
+      if (data.data) {
+        console.log(data.data.email)
+      }
+    })
       if (status?.code) throw new Error(status?.message)
       notice.push(
         'Checkin OK',
